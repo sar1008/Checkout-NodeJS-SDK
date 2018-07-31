@@ -1,6 +1,6 @@
 'use strict';
 
-const client = require('../skeleton').client();
+const client = require('../../samples/skeleton').client();
 const paymentNodeJssdk = require('../../lib/lib');
 
 
