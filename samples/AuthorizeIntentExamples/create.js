@@ -1,7 +1,7 @@
 'use strict';
 
-const client = require('../skeleton').client();
-const authToken = require('../skeleton').authentication();
+const client = require('../skeleton').client;
+const authToken = require('../skeleton').authentication;
 const checkoutNodeJssdk = require('../../lib/lib');
 
 function buildRequestBody() {
@@ -108,11 +108,11 @@ function buildRequestBody() {
 async function createOrder(debug=false) {
     try {
         const request = new checkoutNodeJssdk.orders.OrdersCreateRequest();
-        request.authToken("Bearer " + authToken);
+        request.authToken("Bearer " + await authToken());
         request.prefer("return=representation");
         request.requestBody(buildRequestBody());
 
-        const response = await client.execute(request);
+        const response = await client().execute(request);
         if (debug){
             console.log("Status Code: " + response.statusCode);
             console.log("Status: " + response.result.status);
@@ -134,12 +134,6 @@ async function createOrder(debug=false) {
     }
 
 }
-// async function run() {
-//     const temp = await createOrder(true);
-//     // console.log(temp);
-// }
-//
-// run();
 
 module.exports = {createOrder:createOrder};
 
