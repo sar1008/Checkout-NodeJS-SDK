@@ -1,6 +1,6 @@
 
 const btoa = require('btoa');
-class PaypalAuthToken {
+class PaypalAuthenticationToken {
     constructor(clientId, clientSecret){
         this.path = '/v1/oauth2/token';
         this.verb = 'POST';
@@ -12,4 +12,4 @@ class PaypalAuthToken {
     }
 }
 
-module.exports = {PaypalAuthToken: PaypalAuthToken};
+module.exports = {PaypalAuthenticationToken: PaypalAuthenticationToken};

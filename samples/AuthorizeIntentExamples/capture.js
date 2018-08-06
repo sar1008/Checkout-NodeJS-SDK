@@ -13,18 +13,7 @@ async function captureOrder(authId, debug=false) {
         const response = await client().execute(request);
         if (debug){
             console.log("Status Code: " + response.statusCode);
-            await prettyPrint(response.result);
-            // console.log("Status: " + response.result.status);
-            // console.log("Order ID: " + response.result.id);
-            // console.log("Links:");
-            // response.result.links.forEach((item, index) => {
-            //     let rel = item.rel;
-            //     let href = item.href;
-            //     let method = item.method;
-            //     let message = `\t${rel}: ${href}\tCall Type: ${method}`;
-            //     console.log(message);
-            // });
-
+            console.log(await prettyPrint(response.result));
         }
         return response;
     }
