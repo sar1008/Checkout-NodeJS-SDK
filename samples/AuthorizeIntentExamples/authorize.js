@@ -39,8 +39,4 @@ async function authorizeOrder(orderId, debug=false) {
     }
 }
 
-// let orderid = "1LP03074HH5915205";
-// (async () => {
-//     await authorizeOrder(orderid, true);
-// })();
 module.exports = {authorizeOrder:authorizeOrder};

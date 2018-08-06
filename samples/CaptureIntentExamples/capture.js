@@ -29,9 +29,4 @@ async function captureOrder(orderId, debug=false) {
         console.log(e)
     }
 }
-
-// let orderid = "1RE56036014563228";
-// (async () => {
-//     await capture(orderid, true);
-// })();
 module.exports = {captureOrder:captureOrder};
