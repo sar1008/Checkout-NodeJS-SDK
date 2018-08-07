@@ -2,7 +2,6 @@
 
 const client = require('../skeleton').client;
 const authToken = require('../skeleton').authentication;
-const prettyPrint = require('../skeleton').prettyPrint;
 const checkoutNodeJssdk = require('../../lib/lib');
 
 async function captureOrder(orderId, debug=false) {
@@ -13,7 +12,16 @@ async function captureOrder(orderId, debug=false) {
         const response = await client().execute(request);
         if (debug){
             console.log("Status Code: " + response.statusCode);
-            console.log(await prettyPrint(response.result));
+            console.log("Status: " + response.result.status);
+            console.log("Order ID: " + response.result.id);
+            console.log("Links: ");
+            response.result.links.forEach((item, index) => {
+                let rel = item.rel;
+                let href = item.href;
+                let method = item.method;
+                let message = `\t${rel}: ${href}\tCall Type: ${method}`;
+                console.log(message);
+            });
         }
         return response;
     }
@@ -23,6 +31,7 @@ async function captureOrder(orderId, debug=false) {
 }
 
 if (require.main === module){
-    (async() => await captureOrder('3L848818A2897925Y', true))();
+    (async() => await captureOrder('', true))();
 }
+
 module.exports = {captureOrder:captureOrder};
