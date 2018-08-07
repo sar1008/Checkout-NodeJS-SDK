@@ -1,6 +1,8 @@
-# Checkout-NodeJS-SDK
+# REST API SDK for NodeJS V2
 
-# PayPal SDK V2
+![Home Image](https://raw.githubusercontent.com/wiki/paypal/PayPal-Node-SDK/images/homepage.jpg)
+
+__Welcome to PayPal NodeJS SDK__. This repository contains PayPal's NodeJS SDK and samples for REST API.
 
 This is a part of the next major PayPal SDK. It includes a simplified interface to only provide simple model objects and blueprints for HTTP calls. This repo currently contains functionality for PayPal Checkout APIs which includes Orders V2 and Payments V2.
 
