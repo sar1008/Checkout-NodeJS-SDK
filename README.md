@@ -1,6 +1,6 @@
 # REST API SDK for NodeJS V2
 
-![Home Image](https://raw.githubusercontent.com/wiki/paypal/PayPal-Node-SDK/images/homepage.jpg)
+![Home Image](homepage.jpg)
 
 __Welcome to PayPal NodeJS SDK__. This repository contains PayPal's NodeJS SDK and samples for REST API.
 
