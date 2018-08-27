@@ -1,6 +1,6 @@
-const createOrder = require('./create').createOrder;
-const authorizeOrder = require('./authorize').authorizeOrder;
-const captureOrder = require('./capture').captureOrder;
+const createOrder = require('./createOrder').createOrder;
+const authorizeOrder = require('./authorizeOrder').authorizeOrder;
+const captureOrder = require('./captureOrder').captureOrder;
 
 (async() => {
     let response = await createOrder();

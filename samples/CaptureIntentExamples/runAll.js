@@ -1,5 +1,5 @@
-const createOrder = require('./create').createOrder;
-const captureOrder = require('./capture').captureOrder;
+const createOrder = require('./createOrder').createOrder;
+const captureOrder = require('./captureOrder').captureOrder;
 
 (async() => {
     let response = await createOrder();

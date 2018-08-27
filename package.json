@@ -1,13 +1,13 @@
 {
-  "name": "CheckoutNodeJSSDK",
+  "name": "paypal-checkout-sdk",
   "version": "1.0.0",
-  "description": "A generated SDK for ???",
+  "description": "NodeJS SDK for PayPal Checkout APIs",
   "keywords": [],
   "homepage": "",
   "author": "",
   "main": "index",
   "directories": {
-    "lib": "./lib"
+    "lib": "lib"
   },
   "repository": {
     "type": "git",
@@ -17,18 +17,24 @@
     "node": ">=5"
   },
   "dependencies": {
-    "braintreehttp": "^0.4.0"
+    "braintreehttp": "^0.4.0",
+    "npm": "^6.4.0"
   },
   "devDependencies": {
-    "chai": "1.5.0",
-    "mocha": "3.2.0",
     "btoa": "^1.2.1",
-    "xmlhttprequest": "^1.8.0",
-    "prompt": "^1.0.0"
+    "chai": "^4.1.2",
+    "dirty-chai": "^2.0.1",
+    "eslint": "^2.7.0",
+    "eslint-config-braintree": "^1.0.0",
+    "mocha": "^5.2.0",
+    "prompt": "^1.0.0",
+    "nock": "^9.6.1",
+    "sinon": "^2.3.2"
   },
   "license": "MIT",
   "scripts": {
     "test:integration": "mocha spec --recursive",
-    "test": "npm run test:integration"
+    "test": "npm run test:integration",
+    "test:orders": "mocha spec/orders --recursive --timeout 60000"
   }
 }

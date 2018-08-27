@@ -1,13 +1,20 @@
 'use strict';
-const checkoutNodeJssdk = require('../lib/lib');
-const paypalAuthenticationToken = require('./paypalAuthenticationToken');
-class TestEnvironment extends checkoutNodeJssdk.core.CheckoutNodeJssdkEnvironment {
-  constructor() {
-    super(process.env.BASE_URL);
-  }
+
+const paypal = require('../lib/lib').core;
+
+function client() {
+    return new paypal.PayPalHttpClient(environment());
 }
 
-// TODO use pretty print everywhere
+function environment() {
+    let clientId = process.env.PAYPAL_CLIENT_ID || 'AVNCVvV9oQ7qee5O8OW4LSngEeU1dI7lJAGCk91E_bjrXF2LXB2TK2ICXQuGtpcYSqs4mz1BMNQWuso1';
+    let clientSecret = process.env.PAYPAL_CLIENT_SECRET || 'EDQzd81k-1z2thZw6typSPOTEjxC_QbJh6IithFQuXdRFc7BjVht5rQapPiTaFt5RC-HCa1ir6mi-H5l';
+
+    return new paypal.SandboxEnvironment(
+        clientId, clientSecret
+    );
+}
+
 async function prettyPrint(jsonData, pre=""){
     let pretty = "";
     function capitalize(string) {
@@ -32,15 +39,6 @@ async function prettyPrint(jsonData, pre=""){
     return pretty;
 }
 
-function client() {
-    return new checkoutNodeJssdk.core.CheckoutNodeJssdkHttpClient(new TestEnvironment());
-}
 
-async function authentication(){
-  let request = new paypalAuthenticationToken.PaypalAuthenticationToken('AVNCVvV9oQ7qee5O8OW4LSngEeU1dI7lJAGCk91E_bjrXF2LXB2TK2ICXQuGtpcYSqs4mz1BMNQWuso1',
-        'EDQzd81k-1z2thZw6typSPOTEjxC_QbJh6IithFQuXdRFc7BjVht5rQapPiTaFt5RC-HCa1ir6mi-H5l');
-  let response = await client().execute(request);
-  return response.result.access_token;
-}
 
-module.exports = {client: client, authentication:authentication, prettyPrint:prettyPrint};
+module.exports = {client: client, prettyPrint:prettyPrint};
