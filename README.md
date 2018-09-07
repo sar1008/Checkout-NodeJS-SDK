@@ -99,57 +99,8 @@ catch(error){
 ```
 Status Code: 201
 Id: 8GB67279RC051624C
-Purchase_units:
-	1:
-		Shipping:
-			Name:
-				Full_name: test buyer
-			Address:
-				Address_line_1: 123 Townsend St
-				Address_line_2: Floor 6
-				Admin_area_2: San Francisco
-				Admin_area_1: CA
-				Postal_code: 94107
-				Country_code: US
-		Payments:
-			Captures:
-				1:
-					Id: 1FH396049P053021B
-					Status: COMPLETED
-					Amount:
-						Currency_code: USD
-						Value: 100.00
-					Final_capture: true
-					Seller_protection:
-						Status: ELIGIBLE
-						Dispute_categories:
-							1: ITEM_NOT_RECEIVED
-							2: UNAUTHORIZED_TRANSACTION
-					Seller_receivable_breakdown:
-						Gross_amount:
-							Currency_code: USD
-							Value: 100.00
-						Paypal_fee:
-							Currency_code: USD
-							Value: 3.20
-						Net_amount:
-							Currency_code: USD
-							Value: 96.80
-					Links:
-						1:
-							Href: https://api.sandbox.paypal.com/v2/payments/captures/1FH396049P053021B
-							Rel: self
-							Method: GET
-						2:
-							Href: https://api.sandbox.paypal.com/v2/payments/captures/1FH396049P053021B/refund
-							Rel: refund
-							Method: POST
-						3:
-							Href: https://api.sandbox.paypal.com/v2/checkout/orders/3L848818A2897925Y
-							Rel: up
-							Method: GET
-					Create_time: 2018-08-06T23:39:11Z
-					Update_time: 2018-08-06T23:39:11Z
+Create_time: 2018-08-06T23:39:11Z
+Update_time: 2018-08-06T23:39:11Z
 Payer:
 	Name:
 		Given_name: test
@@ -169,6 +120,16 @@ Links:
 Status: COMPLETED
 ```
 
+## Running tests
+
+To run integration tests using your client id and secret, clone this repository and run the following command:
+```sh
+$ npm install
+$ npm test
+```
+
+*NOTE*: This SDK is still in beta, is subject to change, and should not be used in production.
+
 ## Samples
 
 You can start off by trying out [creating and capturing an order](/samples/CaptureIntentExamples/runAll.js)
@@ -177,7 +138,7 @@ To try out different samples for both create and authorize intent check [this li
 
 ## Note
 
-Http Client used as part of this project returns Promises
+BraintreeHttpClient used as part of this project returns Promises
 
 You can read more about Promises here: https://www.promisejs.org/
 
