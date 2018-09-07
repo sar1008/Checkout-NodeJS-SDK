@@ -19,21 +19,15 @@ This is a part of the next major PayPal SDK. It includes a simplified interface 
 const paypal = require('checkoutNodeJssdk');
 
 // Creating an environment
-let environment = new paypal.core.CheckoutNodeJssdkEnvironment(process.env.BASE_URL);
-let client = new paypal.core.CheckoutNodeJssdkHttpClient(environment);
-
-// Creating Access Token for Sandbox
-clientId = "AVNCVvV9oQ7qee5O8OW4LSngEeU1dI7lJAGCk91E_bjrXF2LXB2TK2ICXQuGtpcYSqs4mz1BMNQWuso1";
-clientSecret = "EDQzd81k-1z2thZw6typSPOTEjxC_QbJh6IithFQuXdRFc7BjVht5rQapPiTaFt5RC-HCa1ir6mi-H5l";
-let request = new paypalAuthenticationToken.PaypalAuthenticationToken(clientId,clientSecret);
-let response = await client().execute(request);
-let authToken = response.access_token;
+let clientId = "AVNCVvV9oQ7qee5O8OW4LSngEeU1dI7lJAGCk91E_bjrXF2LXB2TK2ICXQuGtpcYSqs4mz1BMNQWuso1";
+let clientSecret = "EDQzd81k-1z2thZw6typSPOTEjxC_QbJh6IithFQuXdRFc7BjVht5rQapPiTaFt5RC-HCa1ir6mi-H5l";
+let environment = new paypal.core.SandboxEnvironment(clientId, clientSecret);
+let client = new paypal.core.PayPalHttpClient(environment);
 
 // Construct a request object and set desired parameters
 // Here, OrdersCreateRequest() creates a POST request to /v2/checkout/orders
 let request = new paypal.orders.OrdersCreateRequest();
-request.authToken('Bearer ' + authToken);
-request.request_body({
+request.requestBody({
                           "intent": "CAPTURE",
                           "purchase_units": [
                               {
@@ -51,7 +45,7 @@ try {
     
     // If call returns body in response, you can get the deserialized version from the result attribute of the response
     let order = response.result;
-    console.log(prettyPrint(order));
+    console.log(order);
 }
 catch(error){
     console.error(error.statusCode);
@@ -60,32 +54,22 @@ catch(error){
 ```
 #### Example Output:
 ```
-Status Code: 201
-Id: 8GB67279RC051624C
-Intent: CAPTURE
-Gross_amount:
-	Currency_code: USD
-	Value: 100.00
-Purchase_units:
-	1:
-		Amount:
-			Currency_code: USD
-			Value: 100.00
-Create_time: 2018-08-06T23:34:31Z
-Links:
-	1:
-		Href: https://api.sandbox.paypal.com/v2/checkout/orders/8GB67279RC051624C
-		Rel: self
-		Method: GET
-	2:
-		Href: https://www.sandbox.paypal.com/checkoutnow?token=8GB67279RC051624C
-		Rel: approve
-		Method: GET
-	3:
-		Href: https://api.sandbox.paypal.com/v2/checkout/orders/8GB67279RC051624C/capture
-		Rel: capture
-		Method: POST
-Status: CREATED
+{ id: '24095053SH7271302',
+  intent: 'CAPTURE',
+  gross_amount: { currency_code: 'USD', value: '100.00' },
+  purchase_units: [ { amount: [Object] } ],
+  create_time: '2018-08-27T19:22:03Z',
+  links: 
+   [ { href: 'https://api.sandbox.paypal.com/v2/checkout/orders/24095053SH7271302',
+       rel: 'self',
+       method: 'GET' },
+     { href: 'https://www.sandbox.paypal.com/checkoutnow?token=24095053SH7271302',
+       rel: 'approve',
+       method: 'GET' },
+     { href: 'https://api.sandbox.paypal.com/v2/checkout/orders/24095053SH7271302/capture',
+       rel: 'capture',
+       method: 'POST' } ],
+  status: 'CREATED' }
 ```
 
 ## Capturing an Order
@@ -95,7 +79,6 @@ Status: CREATED
 // Here, OrdersCaptureRequest() creates a POST request to /v2/checkout/orders
 // order.id gives the orderId of the order created above
 request = new paypal.orders.OrdersCaptureRequest(order.id);
-request.authToken('Bearer ' + authToken);
 request.requestBody({});
 
 try {
@@ -104,7 +87,7 @@ try {
     
     // If call returns body in response, you can get the deserialized version from the result attribute of the response
     order = response.result;
-    console.log(prettyPrint(order));
+    console.log(order);
 }
 catch(error){
     console.error(error.statusCode);

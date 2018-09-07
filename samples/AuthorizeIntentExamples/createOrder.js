@@ -32,7 +32,7 @@ function buildRequestBody() {
                         },
                         "shipping": {
                             "currency_code": "USD",
-                            "value": "20.00"
+                            "value": "30.00"
                         },
                         "handling": {
                             "currency_code": "USD",
@@ -41,10 +41,6 @@ function buildRequestBody() {
                         "tax_total": {
                             "currency_code": "USD",
                             "value": "20.00"
-                        },
-                        "gift_wrap": {
-                            "currency_code": "USD",
-                            "value": "10.00"
                         },
                         "shipping_discount": {
                             "currency_code": "USD",
@@ -125,6 +121,9 @@ async function createOrder(debug=false) {
                 console.log(message);
             });
             console.log(`Gross Amount: ${response.result.purchase_units[0].amount.currency_code} ${response.result.purchase_units[0].amount.value}`);
+
+            // To print the whole body uncomment the below line
+            // console.log(response.result);
         }
         return response;
     }

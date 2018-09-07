@@ -20,6 +20,9 @@ async function captureOrder(orderId, debug=false) {
                 let message = `\t${rel}: ${href}\tCall Type: ${method}`;
                 console.log(message);
             });
+
+            // To print the whole body uncomment the below line
+            // console.log(response.result);
         }
         return response;
     }
