@@ -41,7 +41,7 @@ request.requestBody({
 
 try {
     // Call API with your client and get a response for your call
-    let response = client.execute(request);  
+    let response = await client.execute(request);  
     
     // If call returns body in response, you can get the deserialized version from the result attribute of the response
     let order = response.result;
@@ -83,7 +83,7 @@ request.requestBody({});
 
 try {
     // Call API with your client and get a response for your call
-    response = client.execute(request);  
+    response = await client.execute(request);   
     
     // If call returns body in response, you can get the deserialized version from the result attribute of the response
     order = response.result;

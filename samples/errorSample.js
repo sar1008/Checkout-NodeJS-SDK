@@ -1,7 +1,7 @@
-const client = require('./skeleton').client;
-const authToken = require('./skeleton').authentication;
+const client = require('./payPalClient').client;
+const authToken = require('./payPalClient').authentication;
 const checkoutNodeJssdk = require('../lib/lib');
-const prettyPrint = require('./skeleton').prettyPrint;
+const prettyPrint = require('./payPalClient').prettyPrint;
 /**
  * Body has no required parameters (intent, purchase_units)
  */

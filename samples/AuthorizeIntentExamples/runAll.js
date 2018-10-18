@@ -1,7 +1,7 @@
 const createOrder = require('./createOrder').createOrder;
 const authorizeOrder = require('./authorizeOrder').authorizeOrder;
 const captureOrder = require('./captureOrder').captureOrder;
-const refundOrder = require('./refundOrder').refundOrder;
+const refundOrder = require('../refundOrder').refundOrder;
 
 (async() => {
     let response = await createOrder();

@@ -1,13 +1,28 @@
 'use strict';
 
-const client = require('../skeleton').client;
+/**
+ * PayPal Node JS SDK dependency
+ */
 const checkoutNodeJssdk = require('../../lib/lib');
 
+/**
+ * PayPal HTTP client dependency
+ */
+const payPalClient = require('../payPalClient');
+
+/**
+ * This function can be used to capture the payment on an authorized Order.
+ * An Valid authorization Id should be passed as an argument to this method.
+ * 
+ * @param authId
+ * @param debug
+ * @returns
+ */
 async function captureOrder(authId, debug=false) {
     try {
         const request = new checkoutNodeJssdk.payments.AuthorizationsCaptureRequest(authId);
         request.requestBody({});
-        const response = await client().execute(request);
+        const response = await payPalClient.client().execute(request);
         if (debug){
             console.log("Status Code: " + response.statusCode);
             console.log("Status: " + response.result.status);
@@ -30,8 +45,20 @@ async function captureOrder(authId, debug=false) {
     }
 }
 
+/**
+ * This is the driver function which invokes the captureOrder function with authorization Id
+ * to retrieve an order details.
+ * 
+ * Authorization id should be replaced with an valid authorization Id.
+ */
 if (require.main === module){
     // Replace authorization id from authorizeOrder here to see it work
-    (async() => await captureOrder('AUTHORIZATION-ID', true))();
+    (async() => await captureOrder('<<REPLACE-WITH-VALID-AUTHORIZATION-ID>>', true))();
 }
+
+/**
+ * Exports the capture Order function. If needed this can be invoked from the order
+ * modules to execute the end to flow like create order, retrieve, authorize, capture and
+ * refund(Optional)
+ */
 module.exports = {captureOrder:captureOrder};

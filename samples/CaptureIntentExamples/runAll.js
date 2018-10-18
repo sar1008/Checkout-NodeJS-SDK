@@ -1,5 +1,6 @@
 const createOrder = require('./createOrder').createOrder;
 const captureOrder = require('./captureOrder').captureOrder;
+const refundOrder = require('../refundOrder').refundOrder;
 
 (async() => {
     let response = await createOrder();
@@ -36,11 +37,19 @@ const captureOrder = require('./captureOrder').captureOrder;
 
     console.log('Capturing Order...');
     response = await captureOrder(orderId);
+    let captureId = "";
     if (response.statusCode === 201){
         console.log("Captured Successfully");
         console.log("Status Code: " + response.statusCode);
         console.log("Status: " + response.result.status);
         console.log("Order ID: " + response.result.id);
+        console.log("Capture Ids:");
+        response.result.purchase_units.forEach((item,index)=>{
+        	item.payments.captures.forEach((item, index)=>{
+        		console.log("\t"+item.id);
+        		captureId = item.id;
+            });
+        });
         console.log("Links: ");
         response.result.links.forEach((item, index) => {
             let rel = item.rel;
@@ -50,5 +59,23 @@ const captureOrder = require('./captureOrder').captureOrder;
             console.log(message);
         });
     }
+    
+    console.log('Refunding Order...');
+    response = await refundOrder(captureId);
+    if (response.statusCode === 201){
+        console.log("Refunded Successfully");
+        console.log("Status Code: " + response.statusCode);
+        console.log("Status: " + response.result.status);
+        console.log("Refund ID: " + response.result.id);
+        console.log("Links: ");
+        response.result.links.forEach((item, index) => {
+            let rel = item.rel;
+            let href = item.href;
+            let method = item.method;
+            let message = `\t${rel}: ${href}\tCall Type: ${method}`;
+            console.log(message);
+        });
+    }
+    
     process.exit();
 })();
