@@ -36,7 +36,7 @@ function buildCompleteRequestBody() {
                 "soft_descriptor": "HighFashions",
                 "amount": {
                     "currency_code": "USD",
-                    "value": "230.00",
+                    "value": "220.00",
                     "breakdown": {
                         "item_total": {
                             "currency_code": "USD",
@@ -44,7 +44,7 @@ function buildCompleteRequestBody() {
                         },
                         "shipping": {
                             "currency_code": "USD",
-                            "value": "30.00"
+                            "value": "20.00"
                         },
                         "handling": {
                             "currency_code": "USD",
@@ -120,11 +120,15 @@ function buildCompleteRequestBody() {
 function buildMinimumRequestBody() {
     return {
         "intent": "AUTHORIZE",
+        "application_context": {
+            "return_url": "https://www.example.com",
+            "cancel_url": "https://www.example.com"
+        },
         "purchase_units": [
             {
                 "amount": {
                     "currency_code": "USD",
-                    "value": "230.00"
+                    "value": "220.00"
                 }
             }
         ]
@@ -158,8 +162,8 @@ async function createOrderWithCompletePayload(debug=false) {
             });
             console.log(`Gross Amount: ${response.result.purchase_units[0].amount.currency_code} ${response.result.purchase_units[0].amount.value}`);
 
-            // To print the whole body uncomment the below line
-            // console.log(response.result);
+            // To toggle print the whole body comment/uncomment the below line
+            console.log(JSON.stringify(response.result, null, 4));
         }
         return response;
     }
@@ -195,8 +199,8 @@ async function createOrderWithPartialPayload(debug=false) {
             });
             console.log(`Gross Amount: ${response.result.purchase_units[0].amount.currency_code} ${response.result.purchase_units[0].amount.value}`);
 
-            // To print the whole body uncomment the below line
-            // console.log(response.result);
+            // To toggle print the whole body comment/uncomment the below line
+            console.log(JSON.stringify(response.result, null, 4));
         }
         return response;
     }

@@ -20,8 +20,8 @@ function client() {
  * LiveEnvironment.
  */
 function environment() {
-    let clientId = process.env.PAYPAL_CLIENT_ID || 'AVNCVvV9oQ7qee5O8OW4LSngEeU1dI7lJAGCk91E_bjrXF2LXB2TK2ICXQuGtpcYSqs4mz1BMNQWuso1';
-    let clientSecret = process.env.PAYPAL_CLIENT_SECRET || 'EDQzd81k-1z2thZw6typSPOTEjxC_QbJh6IithFQuXdRFc7BjVht5rQapPiTaFt5RC-HCa1ir6mi-H5l';
+    let clientId = process.env.PAYPAL_CLIENT_ID || '<<PAYPAL-CLIENT-ID>>';
+    let clientSecret = process.env.PAYPAL_CLIENT_SECRET || '<<PAYPAL-CLIENT-SECRET>>';
 
     return new checkoutNodeJssdk.core.SandboxEnvironment(
         clientId, clientSecret

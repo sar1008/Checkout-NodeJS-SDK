@@ -38,8 +38,8 @@ async function patchOrder(orderId) {
     request.requestBody(buildRequestBody());
     let response = await client().execute(request);
     console.log("PATCH Status Code: " + response.statusCode);
-    // To print the whole response body uncomment below line
-    // console.log(response.result);
+    // To toggle print the whole body comment/uncomment the below line
+    console.log(JSON.stringify(response.result, null, 4));
 }
 
 if (require.main === module){

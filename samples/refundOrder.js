@@ -40,8 +40,8 @@ async function refundOrder(captureId, debug=false) {
                 let message = `\t${rel}: ${href}\tCall Type: ${method}`;
                 console.log(message);
             });
-            // To print the whole body uncomment the below line
-            // console.log(response.result);
+            // To toggle print the whole body comment/uncomment the below line
+            console.log(JSON.stringify(response.result, null, 4));
         }
         return response;
     }

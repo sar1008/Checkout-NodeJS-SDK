@@ -41,8 +41,8 @@ async function captureOrder(orderId, debug=false) {
             		console.log("\t"+item.id);
                 });
             });
-            // To print the whole body uncomment the below line
-            // console.log(response.result);
+            // To toggle print the whole body comment/uncomment the below line
+            console.log(JSON.stringify(response.result, null, 4));
         }
         return response;
     }
