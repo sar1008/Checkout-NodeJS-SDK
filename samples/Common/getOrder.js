@@ -3,7 +3,7 @@
 /**
  * PayPal Node JS SDK dependency
  */
-const checkoutNodeJssdk = require('../lib/lib');
+const checkoutNodeJssdk = require('checkout-server-sdk');
 /**
  * PayPal HTTP client dependency
  */
@@ -12,7 +12,7 @@ const payPalClient = require('./payPalClient');
 /**
  * This dependency is used to create an order.
  */
-const createOrder = require('./CaptureIntentExamples/createOrder').createOrder;
+const createOrder = require('../CaptureIntentExamples/createOrder').createOrder;
 
 /**
  * This function can be used to retrieve an order by passing order Id as

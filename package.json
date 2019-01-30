@@ -1,17 +1,17 @@
 {
-  "name": "paypal-checkout-sdk",
-  "version": "1.0.0",
+  "name": "@paypal/checkout-server-sdk",
+  "version": "1.0.0-RC3-SNAPSHOT",
   "description": "NodeJS SDK for PayPal Checkout APIs",
   "keywords": [],
-  "homepage": "",
-  "author": "",
+  "homepage": "https://github.com/paypal/Checkout-NodeJS-SDK#readme",
+  "author": "PayPal <DL-PP-NODEJS-SDK@paypal.com> (https://developer.paypal.com/)",
   "main": "index",
   "directories": {
     "lib": "lib"
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/paypal/Checkout-NodeJS-SDK.git"
   },
   "engines": {
     "node": ">=5"
@@ -36,5 +36,8 @@
     "test:integration": "mocha spec --recursive",
     "test": "npm run test:integration",
     "test:orders": "mocha spec/orders --recursive --timeout 60000"
+  },
+  "bugs": {
+    "url": "https://github.com/paypal/Checkout-NodeJS-SDK/issues"
   }
 }

@@ -1,6 +1,6 @@
-# REST API SDK for NodeJS V2
+# PayPal Checkout API SDK for NodeJS
 
-![Home Image](homepage.jpg)
+![PayPal Developer](/homepage.jpg)
 
 __Welcome to PayPal NodeJS SDK__. This repository contains PayPal's NodeJS SDK and samples for REST API.
 
@@ -16,11 +16,11 @@ This is a part of the next major PayPal SDK. It includes a simplified interface 
 ### Creating an Order
 #### Code to Execute:
 ```javascript
-const paypal = require('checkoutNodeJssdk');
+const paypal = require('checkout-server-sdk');
 
 // Creating an environment
-let clientId = "AVNCVvV9oQ7qee5O8OW4LSngEeU1dI7lJAGCk91E_bjrXF2LXB2TK2ICXQuGtpcYSqs4mz1BMNQWuso1";
-let clientSecret = "EDQzd81k-1z2thZw6typSPOTEjxC_QbJh6IithFQuXdRFc7BjVht5rQapPiTaFt5RC-HCa1ir6mi-H5l";
+let clientId = "<<CLIENT-ID>>";
+let clientSecret = "<<CLIENT-SECRET>>";
 let environment = new paypal.core.SandboxEnvironment(clientId, clientSecret);
 let client = new paypal.core.PayPalHttpClient(environment);
 
@@ -132,9 +132,9 @@ $ npm test
 
 ## Samples
 
-You can start off by trying out [creating and capturing an order](/samples/CaptureIntentExamples/runAll.js)
+You can start off by trying out [creating and capturing an order](https://github.com/paypal/Checkout-NodeJS-SDK/tree/master/samples/CaptureIntentExamples/runAll.js)
 
-To try out different samples for both create and authorize intent check [this link](/samples)
+To try out different samples for both create and authorize intent check [this link](https://github.com/paypal/Checkout-NodeJS-SDK/tree/master/samples)
 
 ## Note
 

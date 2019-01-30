@@ -1,6 +1,6 @@
 const createOrder = require('./createOrder').createOrder;
 const captureOrder = require('./captureOrder').captureOrder;
-const refundOrder = require('../refundOrder').refundOrder;
+const refundOrder = require('../Common/refundOrder').refundOrder;
 
 (async() => {
     let response = await createOrder();

@@ -3,7 +3,7 @@
 /**
  * PayPal Node JS SDK dependency
  */
-const checkoutNodeJssdk = require('../lib/lib');
+const checkoutNodeJssdk = require('checkout-server-sdk');
 
 /**
  * Returns PayPal HTTP client instance with environment which has access
@@ -20,8 +20,8 @@ function client() {
  * LiveEnvironment.
  */
 function environment() {
-    let clientId = process.env.PAYPAL_CLIENT_ID || '<<PAYPAL-CLIENT-ID>>';
-    let clientSecret = process.env.PAYPAL_CLIENT_SECRET || '<<PAYPAL-CLIENT-SECRET>>';
+    let clientId = process.env.PAYPAL_CLIENT_ID || '<<CLIENT-ID>>';
+    let clientSecret = process.env.PAYPAL_CLIENT_SECRET || '<<CLIENT-SECRET>>';
 
     return new checkoutNodeJssdk.core.SandboxEnvironment(
         clientId, clientSecret

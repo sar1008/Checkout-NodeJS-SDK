@@ -1,8 +1,8 @@
 'use strict';
 
 const client = require('./payPalClient').client;
-const checkoutNodeJssdk = require('../lib/lib');
-const createOrder = require('./AuthorizeIntentExamples/createOrder').createOrder;
+const checkoutNodeJssdk = require('checkout-server-sdk');
+const createOrder = require('../AuthorizeIntentExamples/createOrder').createOrder;
 const getOrder = require('./getOrder').getOrder;
 
 function buildRequestBody(){
