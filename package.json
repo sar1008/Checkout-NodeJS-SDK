@@ -4,7 +4,7 @@
   "description": "NodeJS SDK for PayPal Checkout APIs",
   "keywords": [],
   "homepage": "https://github.com/paypal/Checkout-NodeJS-SDK#readme",
-  "author": "PayPal <DL-PP-NODEJS-SDK@paypal.com> (https://developer.paypal.com/)",
+  "author": "dl-paypal-checkout-api@paypal.com (https://developer.paypal.com/)",
   "main": "index",
   "directories": {
     "lib": "lib"
