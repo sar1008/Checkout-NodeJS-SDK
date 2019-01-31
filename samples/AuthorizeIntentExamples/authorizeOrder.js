@@ -3,12 +3,12 @@
 /**
  * PayPal Node JS SDK dependency
  */
-const checkoutNodeJssdk = require('../../lib/lib');
+const checkoutNodeJssdk = require('checkout-server-sdk');
 
 /**
  * PayPal HTTP client dependency
  */
-const payPalClient = require('../payPalClient');
+const payPalClient = require('../Common/payPalClient');
 
 /**
  * This function can be used to perform authorization on the approved order. 

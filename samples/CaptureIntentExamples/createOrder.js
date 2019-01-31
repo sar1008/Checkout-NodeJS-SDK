@@ -3,12 +3,12 @@
 /**
  * PayPal SDK dependency
  */
-const checkoutNodeJssdk = require('../../lib/lib');
+const checkoutNodeJssdk = require('checkout-server-sdk');
 
 /**
  * PayPal HTTP client dependency
  */
-const payPalClient = require('../payPalClient');
+const payPalClient = require('../Common/payPalClient');
    
 /**
  * Setting up the JSON request body for creating the Order. The Intent in the
