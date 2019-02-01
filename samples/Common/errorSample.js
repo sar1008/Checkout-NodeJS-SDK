@@ -1,6 +1,6 @@
 const client = require('./payPalClient').client;
 const authToken = require('./payPalClient').authentication;
-const checkoutNodeJssdk = require('checkout-server-sdk');
+const checkoutNodeJssdk = require('@paypal/checkout-server-sdk');
 const prettyPrint = require('./payPalClient').prettyPrint;
 /**
  * Body has no required parameters (intent, purchase_units)

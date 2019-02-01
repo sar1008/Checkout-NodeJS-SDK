@@ -3,7 +3,7 @@
 /**
  * PayPal Node JS SDK dependency
  */
-const checkoutNodeJssdk = require('checkout-server-sdk');
+const checkoutNodeJssdk = require('@paypal/checkout-server-sdk');
 
 /**
  * Returns PayPal HTTP client instance with environment which has access
