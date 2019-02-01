@@ -17,7 +17,7 @@
     "node": ">=5"
   },
   "dependencies": {
-    "checkout-server-sdk": "1.0.0-SNAPSHOT",
+    "@paypal/checkout-server-sdk": "1.0.0-RC3-SNAPSHOT",
     "npm": "^6.4.0"
   },
   "license": "MIT",

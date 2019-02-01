@@ -3,7 +3,7 @@
 /**
  * PayPal SDK dependency
  */
-const checkoutNodeJssdk = require('checkout-server-sdk');
+const checkoutNodeJssdk = require('@paypal/checkout-server-sdk');
 
 /**
  * PayPal HTTP client dependency
