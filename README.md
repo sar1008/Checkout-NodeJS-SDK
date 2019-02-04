@@ -16,7 +16,7 @@ This is a part of the next major PayPal SDK. It includes a simplified interface 
 ### Creating an Order
 #### Code to Execute:
 ```javascript
-const paypal = require('checkout-server-sdk');
+const paypal = require('@paypal/checkout-server-sdk');
 
 // Creating an environment
 let clientId = "<<CLIENT-ID>>";
