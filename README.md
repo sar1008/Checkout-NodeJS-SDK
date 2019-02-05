@@ -6,6 +6,13 @@ __Welcome to PayPal NodeJS SDK__. This repository contains PayPal's NodeJS SDK a
 
 This is a part of the next major PayPal SDK. It includes a simplified interface to only provide simple model objects and blueprints for HTTP calls. This repo currently contains functionality for PayPal Checkout APIs which includes Orders V2 and Payments V2.
 
+## Usage
+### Binaries
+
+It is not mandatory to fork this repository for using the PayPal SDK. You can refer [PayPal Checkout Server SDK] https://developer.paypal.com/docs/checkout/reference/server-integration for configuring and working with SDK without forking this code.
+
+For contirbuting or referrring the samples, You can fork/refer this repository. 
+
 ## Examples
 ### Creating an Order
 #### Code to Execute:
@@ -195,7 +202,7 @@ let capture = captureOrder('REPLACE-WITH-APPROVED-ORDER-ID');
 To run integration tests using your client id and secret, clone this repository and run the following command:
 ```sh
 $ npm install
-$ npm test
+$ PAYPAL_CLIENT_ID=YOUR_SANDBOX_CLIENT_ID PAYPAL_CLIENT_SECRET=YOUR_SANDBOX_CLIENT_SECRET npm test
 ```
 
 *NOTE*: This SDK is still in beta, is subject to change, and should not be used in production.
@@ -205,6 +212,8 @@ $ npm test
 You can start off by trying out [creating and capturing an order](https://github.com/paypal/Checkout-NodeJS-SDK/tree/master/samples/CaptureIntentExamples/runAll.js)
 
 To try out different samples for both create and authorize intent check [this link](https://github.com/paypal/Checkout-NodeJS-SDK/tree/master/samples)
+
+Note: Update the `payPalClient.js` with your sandbox client credentials or pass your client credentials as environment variable whie executing the samples.
 
 ## Note
 
