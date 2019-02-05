@@ -14,7 +14,7 @@
     "url": "https://github.com/paypal/Checkout-NodeJS-SDK.git"
   },
   "engines": {
-    "node": ">=5"
+    "node": ">=8"
   },
   "dependencies": {
     "braintreehttp": "^0.4.0",
