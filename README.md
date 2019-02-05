@@ -9,7 +9,7 @@ This is a part of the next major PayPal SDK. It includes a simplified interface 
 ## Usage
 ### Binaries
 
-It is not mandatory to fork this repository for using the PayPal SDK. You can refer [PayPal Checkout Server SDK] https://developer.paypal.com/docs/checkout/reference/server-integration for configuring and working with SDK without forking this code.
+It is not mandatory to fork this repository for using the PayPal SDK. You can refer [PayPal Checkout Server SDK](https://developer.paypal.com/docs/checkout/reference/server-integration) for configuring and working with SDK without forking this code.
 
 For contirbuting or referrring the samples, You can fork/refer this repository. 
 
@@ -204,8 +204,6 @@ To run integration tests using your client id and secret, clone this repository 
 $ npm install
 $ PAYPAL_CLIENT_ID=YOUR_SANDBOX_CLIENT_ID PAYPAL_CLIENT_SECRET=YOUR_SANDBOX_CLIENT_SECRET npm test
 ```
-
-*NOTE*: This SDK is still in beta, is subject to change, and should not be used in production.
 
 ## Samples
 
