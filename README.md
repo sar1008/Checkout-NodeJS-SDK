@@ -222,3 +222,5 @@ BraintreeHttpClient used as part of this project returns Promises
 You can read more about Promises here: https://www.promisejs.org/
 
 
+## License
+Code released under [SDK LICENSE](LICENSE)  
